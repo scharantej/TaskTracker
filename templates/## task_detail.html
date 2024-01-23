@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task Detail</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Task Detail</h1>
+
+<nav>
+<a href="/">Home</a>
+<a href="/create_task">Create Task</a>
+</nav>
+
+<div id="task_detail">
+<h2>{{ task.name }}</h2>
+<p>Category: {{ task.category }}</p>
+<p>Due Date: {{ task.due_date }}</p>
+<p>Status: {{ task.status }}</p>
+
+<form action="/update_task/{{ task.id }}" method="POST">
+<label for="name">Task Name:</label>
+<input type="text" name="name" value="{{ task.name }}">
+<br>
+<label for="category">Category:</label>
+<input type="text" name="category" value="{{ task.category }}">
+<br>
+<label for="due_date">Due Date:</label>
+<input type="date" name="due_date" value="{{ task.due_date }}">
+<br>
+<label for="status">Status:</label>
+<select name="status">
+<option value="Needs Focus">Needs Focus</option>
+<option value="On Track">On Track</option>
+<option value="Completed">Completed</option>
+</select>
+<br>
+<input type="submit" value="Update Task">
+</form>
+
+<form action="/mark_completed/{{ task.id }}" method="POST">
+<input type="submit" value="Mark Completed">
+</form>
+
+<form action="/change_status/{{ task.id }}" method="GET">
+<select name="status">
+<option value="Needs Focus">Needs Focus</option>
+<option value="On Track">On Track</option>
+</select>
+<input type="submit" value="Change Status">
+</form>
+</div>
+
+</body>
+</html>
+
