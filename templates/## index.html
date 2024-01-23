@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Recurring Todo Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Recurring Todo Tracker</h1>
+
+<nav>
+<a href="/">Home</a>
+<a href="/create_task">Create Task</a>
+</nav>
+
+<h2>Tasks</h2>
+
+<table id="tasks">
+<thead>
+<tr>
+<th>Task Name</th>
+<th>Category</th>
+<th>Due Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+{% for task in tasks %}
+<tr>
+<td><a href="/task_detail/{{ task.id }}">{{ task.name }}</a></td>
+<td>{{ task.category }}</td>
+<td>{{ task.due_date }}</td>
+<td>{{ task.status }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</body>
+</html>
+
+
